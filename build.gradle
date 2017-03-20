@@ -1,0 +1,28 @@
+apply plugin: 'java'
+apply plugin: 'maven'
+
+group = 'org.test'
+version = '1'
+
+description = """boot-solution"""
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+
+
+repositories {
+        
+     maven { url "http://repository.collegeboardnewmedia.org/artifactory/repo" }
+     maven { url "https://maven-repository.com/" }
+}
+dependencies {
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-actuator', version:'1.2.3.RELEASE'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-thymeleaf', version:'1.2.3.RELEASE'
+    compile group: 'org.hsqldb', name: 'hsqldb', version:'2.3.2'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa', version:'1.2.3.RELEASE'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-rest', version:'1.2.3.RELEASE'
+    testCompile(group: 'org.springframework.boot', name: 'spring-boot-starter-test', version:'1.2.3.RELEASE') {
+exclude(module: 'commons-logging')
+    }
+}
